@@ -6,7 +6,7 @@ defmodule Honeybee.Pipeline do
   @type t :: %Honeybee.Pipeline{
           line: integer(),
           name: atom(),
-          plugs: Honeybee.Plug.t()
+          plugs: [Honeybee.Plug.t()]
         }
 
   @spec init(Macro.Env.t()) :: :ok

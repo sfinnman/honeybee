@@ -1,8 +1,13 @@
 defmodule Honeybee.Compiler do
   @moduledoc false
   def compile_pipeline(env, %Honeybee.Pipeline{name: name, plugs: plugs, line: line}) do
-    plug_pipeline = plugs |> Enum.reverse() |> Enum.map(&Honeybee.Plug.as_plug/1)
+    plug_pipeline =
+      plugs
+      |> Enum.reverse()
+      |> Enum.map(&Honeybee.Plug.as_plug/1)
+      |> Macro.prewalk(&Macro.expand_once(&1, env))
 
+    IO.inspect(plug_pipeline)
     {conn, ast} = Plug.Builder.compile(env, plug_pipeline, [])
 
     compiled_pipeline =
