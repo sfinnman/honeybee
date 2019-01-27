@@ -1,6 +1,6 @@
 {application,phoenix,
              [{applications,[kernel,stdlib,elixir,logger,eex,crypto,
-                             phoenix_pubsub,plug]},
+                             phoenix_pubsub,plug,plug_cowboy]},
               {description,"Productive. Reliable. Fast. A productive web framework that\ndoes not compromise speed and maintainability.\n"},
               {modules,['Elixir.Mix.Phoenix','Elixir.Mix.Phoenix.Context',
                         'Elixir.Mix.Phoenix.Schema',

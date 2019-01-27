@@ -1,9 +1,9 @@
-defmodule Root.MixProject do
+defmodule Honeybee.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :root,
+      app: :honeybee,
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
@@ -21,8 +21,8 @@ defmodule Root.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug_cowboy, "~> 2.0"},
-      {:phoenix, "~> 1.4"}
+      {:plug, "~> 1.7.1"},
+      {:dialyxir, "~> 0.4", only: [:dev]}
     ]
   end
 end
