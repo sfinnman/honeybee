@@ -1,4 +1,5 @@
 defmodule Honeybee.Utils.Path do
+  @moduledoc false
   defmodule InvalidPathError do
     use Honeybee.Utils.Error
   end

@@ -1,4 +1,5 @@
 defmodule Honeybee.PipeThrough do
+  @moduledoc false
   defstruct [:line, :pipelines]
 
   @type t :: %Honeybee.PipeThrough{

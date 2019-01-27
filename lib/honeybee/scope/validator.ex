@@ -1,4 +1,5 @@
 defmodule Honeybee.Scope.Validator do
+  @moduledoc false
   defmodule TypeError do
     use Honeybee.Utils.Error
   end

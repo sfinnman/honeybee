@@ -1,4 +1,5 @@
 defmodule Honeybee.Route do
+  @moduledoc false
   use Honeybee.Utils.Types
   @attr_route :__honeybee_routes__
   defstruct [:line, :type, :scope, :verb, :path, :module, :method, :opts]

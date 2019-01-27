@@ -1,4 +1,5 @@
 defmodule Honeybee.Pipeline.Validator do
+  @moduledoc false
   use Honeybee.Utils.Types
 
   defmodule TypeError do

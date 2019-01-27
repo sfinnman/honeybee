@@ -22,7 +22,8 @@ defmodule Honeybee.MixProject do
   defp deps do
     [
       {:plug, "~> 1.7.1"},
-      {:dialyxir, "~> 0.4", only: [:dev]}
+      {:dialyxir, "~> 0.4", only: [:dev]},
+      {:ex_doc, "~> 0.13", only: :dev}
     ]
   end
 end

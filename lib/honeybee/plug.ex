@@ -1,4 +1,5 @@
 defmodule Honeybee.Plug do
+  @moduledoc false
   use Honeybee.Utils.Types
   defstruct [:plug, :opts, :guards, :line]
 

@@ -1,12 +1,15 @@
 defmodule Honeybee.Utils.Types.Alias do
+  @moduledoc false
   @type t :: {:__aliases__, keyword(), [atom]}
 end
 
 defmodule Honeybee.Utils.Types.Var do
+  @moduledoc false
   @type t :: {atom, keyword(), atom}
 end
 
 defmodule Honeybee.Utils.Types do
+  @moduledoc false
   @spec alias?(term) :: boolean
   def alias?({:__aliases__, meta, atoms}) when is_list(atoms) and is_list(meta) do
     true

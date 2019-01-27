@@ -1,4 +1,23 @@
 defmodule Honeybee do
+  @moduledoc """
+  Defines a Honeybee router.
+
+  Provides macros for routing http-requests.
+  ```
+    defmodule MyApplication.MyRouter do
+      use Honeybee
+
+      get "/hello/world", MyApplication.Greeter, :hello_world
+    end
+  ```
+  Pinging Honeybee, `GET http://www.example.com/hello/world`, would invoke `MyApplication.Greeter.hello_world(%Plug.Conn{method: "GET", path_info: ["hello", "world"]})`
+
+  ## Why Honeybee?
+  Honeybee provides a router, very similar to the Phoenix Router, but is much smaller in size, less opionated and provides faster router and clearer errors.
+  **It's perfect for RESTful APIs**.
+
+  #
+  """
   use Honeybee.Utils.Types
 
   alias Honeybee.Plug

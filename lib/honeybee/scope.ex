@@ -1,4 +1,5 @@
 defmodule Honeybee.Scope do
+  @moduledoc false
   @attr_scope :__honeybee_scope__
 
   defstruct [:line, :path, :pipe_through]

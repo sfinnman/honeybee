@@ -1,4 +1,5 @@
 defmodule Honeybee.Pipeline do
+  @moduledoc false
   @attr_pipelines :__honeybee_pipelines__
   defstruct [:line, :name, :plugs]
 

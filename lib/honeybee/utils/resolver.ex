@@ -1,4 +1,5 @@
 defmodule Honeybee.Utils.Resolver do
+  @moduledoc false
   def resolve(env, {:__block__, _, statements}), do: __resolve__(env, statements)
 
   def resolve(env, statement), do: __resolve__(env, [statement])

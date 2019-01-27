@@ -1,4 +1,5 @@
 defmodule Honeybee.Utils.Error do
+  @moduledoc false
   defmacro __using__(_ \\ []) do
     quote do
       defexception [:message, :env, :file, :line]

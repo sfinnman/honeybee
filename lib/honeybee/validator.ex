@@ -1,4 +1,5 @@
 defmodule Honeybee.Validator do
+  @moduledoc false
   # @spec validate_pipeline!(Macro.Env.t(), Honeybee.Pipeline.t()) :: any
   # def validate_pipeline!(env, %Honeybee.Pipeline{plugs: plugs, name: name, line: line}) do
   #   cond do
