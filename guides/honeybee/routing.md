@@ -2,10 +2,12 @@
 The Honeybee router syntax is very similar to the router of phoenix apart from some key things.
 
  - Honeybee doesn't assume the names of methods in request handlers, giving the developer the freedom to name handler methods however the developer sees fit.
+ - Honeybee doesn't force imports down your throat. Maybe you want to name your functions whatever you like.
  - Honeybee has much stronger compile time error checking, letting developers spot routing errors early.
- - Honeybee is about 5x faster than the Phoenix router and 15x faster than the Plug router.
+ - Honeybee is 15x faster than the Phoenix router and 7x faster than the Plug router.
  - Honeybee provides 0 magic apart from routing, it does not assume to know what JSON parser is best for your needs.
  - Honeybee is less than 1 MB in size, which is more than 60x smaller than Phoenix.
+ - Honeybee compiles 6x faster than Phoenix and more than 30x faster than plug.
 
 ## Getting started
 Start by adding the following dependencies to your app

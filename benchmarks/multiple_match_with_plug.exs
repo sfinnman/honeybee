@@ -12,8 +12,19 @@ phoenix_router = fn -> Enum.each(routes, &Benchee.Phoenix.call(&1, phoenix_opts)
 honeybee_opts = Benchee.Honeybee.init([])
 honeybee_router = fn -> Enum.each(routes, &Benchee.Honeybee.call(&1, honeybee_opts)) end
 
-Benchee.run(%{
-  "Plug.Router" => plug_router,
-  "Phoenix.Router" => phoenix_router,
-  "Honeybee" => honeybee_router
-})
+Benchee.run(
+  %{
+    "Plug.Router" => plug_router,
+    "Phoenix.Router" => phoenix_router,
+    "Honeybee" => honeybee_router
+  },
+  formatters: [
+    Benchee.Formatters.HTML,
+    Benchee.Formatters.Console
+  ],
+  formatter_options: [
+    html: [file: "benchmarks/results/multiple_match_with_plug/results.html", auto_open: false]
+  ],
+  warmup: 5,
+  time: 15
+)

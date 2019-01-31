@@ -1,7 +1,7 @@
 "benchmarks/lib/thousand_routes/*.ex"
 |> Path.wildcard()
 |> Enum.each(fn file ->
-  IO.inspect("Compiling #{file}")
+  IO.inspect("Compiling '#{file}'...'")
   time_start = Time.utc_now()
   Code.eval_file(file)
   time_end = Time.utc_now()
@@ -9,7 +9,7 @@
 end)
 
 routes =
-  Enum.map(1..10, fn id ->
+  Enum.map(0..999, fn id ->
     %Plug.Conn{path_info: [String.pad_leading("#{id}", 3, "0"), "benchmark"]}
   end)
 
@@ -20,8 +20,19 @@ phoenix_router = fn -> Enum.each(routes, &Benchee.Phoenix.call(&1, plug_opts)) e
 honeybee_opts = Benchee.Honeybee.init([])
 honeybee_router = fn -> Enum.each(routes, &Benchee.Honeybee.call(&1, plug_opts)) end
 
-Benchee.run(%{
-  "Plug.Router" => plug_router,
-  "Phoenix.Router" => phoenix_router,
-  "Honeybee" => honeybee_router
-})
+Benchee.run(
+  %{
+    "Plug.Router" => plug_router,
+    "Phoenix.Router" => phoenix_router,
+    "Honeybee" => honeybee_router
+  },
+  formatters: [
+    Benchee.Formatters.HTML,
+    Benchee.Formatters.Console
+  ],
+  formatter_options: [
+    html: [file: "benchmarks/results/thousand_routes/results.html", auto_open: false]
+  ],
+  warmup: 5,
+  time: 15
+)

@@ -1,3 +1,20 @@
+# What is Honeybee?
+Honeybee is a router intended for RESTful APIs. It's built on [Plug](https://hexdocs.pm/plug/readme.html).
+
+Honeybee's key features include:
+ - Feature rich routing.
+ - Strong compile time validation.
+ - Detailed, descriptive errors.
+ - Extreme speed.
+ - Superior compile time performance.
+ - Easy, DRY syntax.
+ - Minimum bloat.
+ - Unopinionated.
+
+# Performance
+
+
+
 # Honeybee
 Honeybee is a Router built on [Plug](https://hexdocs.pm/plug/readme.html "Plug Hexdocs").
 

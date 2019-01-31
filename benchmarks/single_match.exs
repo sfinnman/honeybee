@@ -11,8 +11,19 @@ phoenix_router = fn -> Benchee.Phoenix.call(plug, plug_opts) end
 honeybee_opts = Benchee.Honeybee.init([])
 honeybee_router = fn -> Benchee.Honeybee.call(plug, plug_opts) end
 
-Benchee.run(%{
-  "Plug.Router" => plug_router,
-  "Phoenix.Router" => phoenix_router,
-  "Honeybee" => honeybee_router
-})
+Benchee.run(
+  %{
+    "Plug.Router" => plug_router,
+    "Phoenix.Router" => phoenix_router,
+    "Honeybee" => honeybee_router
+  },
+  formatters: [
+    Benchee.Formatters.HTML,
+    Benchee.Formatters.Console
+  ],
+  formatter_options: [
+    html: [file: "benchmarks/results/single_match/results.html", auto_open: false]
+  ],
+  warmup: 5,
+  time: 15
+)
