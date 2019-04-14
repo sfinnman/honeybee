@@ -1,5 +1,35 @@
 defmodule Honeybee.Validator do
   @moduledoc false
+  alias Honeybee.Plug
+  alias Honeybee.Pipeline
+  alias Honeybee.PipeThrough
+  alias Honeybee.Scope
+  alias Honeybee.Route
+
+  def validate_pipeline(env, %Pipeline{line: line, name: name, plugs: plugs}) do
+  end
+
+  def validate_plug do
+  end
+
+  def ensure_exports!(env, methods) do
+    Enum.each(methods, fn {method, arity} ->
+      cond do
+        !function_exported?(env.module, method, arity) -> raise "nope"
+        true -> :ok
+      end
+    end)
+  end
+
+  def ensure_defined!(env, methods) do
+    Enum.each(methods, fn {method, arity} ->
+      cond do
+        !Module.defines?(env.module, {method, arity}) -> raise "nope"
+        true -> :ok
+      end
+    end)
+  end
+
   # @spec validate_pipeline!(Macro.Env.t(), Honeybee.Pipeline.t()) :: any
   # def validate_pipeline!(env, %Honeybee.Pipeline{plugs: plugs, name: name, line: line}) do
   #   cond do

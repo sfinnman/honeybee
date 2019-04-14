@@ -64,7 +64,7 @@ defmodule Honeybee.MixProject do
       {:benchee_html, "~> 0.4", only: :dev},
       {:phoenix, "~> 1.4.0", only: :dev},
       {:dialyxir, "~> 0.4", only: :dev},
-      {:ex_doc, "~> 0.19.3", only: :docs}
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
     ]
   end
 

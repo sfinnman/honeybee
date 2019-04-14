@@ -7,7 +7,6 @@ defmodule Honeybee.Compiler do
       |> Enum.map(&Honeybee.Plug.as_plug/1)
       |> Macro.prewalk(&Macro.expand_once(&1, env))
 
-    IO.inspect(plug_pipeline)
     {conn, ast} = Plug.Builder.compile(env, plug_pipeline, [])
 
     compiled_pipeline =
